@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hey hey hey</title>
+</head>
+<body>
+        
+    <h1>All Users</h1>
+    <ul>
+    {% for user in all_the_users %}
+        <li>{{ user.id }} - {{ user.first_name }} {{ user.last_name }} -- {{ user.email_address }} -- {{user.age }}</li>
+    {% endfor %}
+    </ul>
+    <br>
+    <h3>Create a User</h3>
+    <form action='/create_users' method='post'>  <!--be sure to change the action path here-->
+        {% csrf_token %}<br>
+        First Name: <input type='text' name='firstname'>
+        Last Name: <input type='text' name='lastname'><br><br>
+        Email: <input type='text' name='email'>
+        Age: <input type="text" name="age">
+        <button type='submit'>Create New User</button>
+    </form>
+</body>
+</html>
